@@ -1,0 +1,5 @@
+Front-end:
+Go top frontend folder, then
+npm run dev
+Back-end:
+Go to backend folder, then npm start
