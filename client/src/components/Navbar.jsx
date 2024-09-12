@@ -14,16 +14,16 @@ const Navbar = () => {
   return (
     <div className='navbar'>
       <div className='container'>
-        <div className="logo">Hi, welcome to my blog!</div>
+        <div className="logo"></div>
 
         {/* Regular Links for desktop */}
         <div className="links">
-          <Link className='link' to="/home?cat=aviation"><h6>Aviation Photos</h6></Link>
-          <Link className='link' to="/home?cat=cars"><h6>Cars Photos</h6></Link>
-          <Link className='link' to="/home?cat=models"><h6>Models</h6></Link>
-          <Link className='link' to="/home?cat=car-reviews"><h6>Car Reviews</h6></Link>
-          <Link className='link' to="/home?cat=technology"><h6>Technology</h6></Link>
-          <Link className='link' to="/home?cat=photography"><h6>Other Photos</h6></Link>
+          <Link className='link' to="/?cat=aviation"><h6>Aviation Photos</h6></Link>
+          <Link className='link' to="/?cat=cars"><h6>Cars Photos</h6></Link>
+          <Link className='link' to="/?cat=models"><h6>Models</h6></Link>
+          <Link className='link' to="/?cat=car-reviews"><h6>Car Reviews</h6></Link>
+          <Link className='link' to="/?cat=technology"><h6>Technology</h6></Link>
+          <Link className='link' to="/?cat=photography"><h6>Other Photos</h6></Link>
         </div>
 
         <div className='right'>
@@ -45,12 +45,12 @@ const Navbar = () => {
 
         {/* Mobile menu - Visible based on menuOpen state */}
         <div className={`menu-links ${menuOpen ? 'menu-active' : ''}`}>
-          <Link className='link' to="/home?cat=aviation"><h6>Aviation Photos</h6></Link>
-          <Link className='link' to="/home?cat=cars"><h6>Cars Photos</h6></Link>
-          <Link className='link' to="/home?cat=models"><h6>Models</h6></Link>
-          <Link className='link' to="/home?cat=car-reviews"><h6>Car Reviews</h6></Link>
-          <Link className='link' to="/home?cat=technology"><h6>Technology</h6></Link>
-          <Link className='link' to="/home?cat=photography"><h6>Other Photos</h6></Link>
+          <Link className='link' to="/?cat=aviation"><h6>Aviation Photos</h6></Link>
+          <Link className='link' to="/?cat=cars"><h6>Cars Photos</h6></Link>
+          <Link className='link' to="/?cat=models"><h6>Models</h6></Link>
+          <Link className='link' to="/?cat=car-reviews"><h6>Car Reviews</h6></Link>
+          <Link className='link' to="/?cat=technology"><h6>Technology</h6></Link>
+          <Link className='link' to="/?cat=photography"><h6>Other Photos</h6></Link>
         </div>
       </div>
     </div>

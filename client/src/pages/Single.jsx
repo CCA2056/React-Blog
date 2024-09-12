@@ -31,13 +31,13 @@ const Single = () => {
       await axios.delete(`http://localhost:8800/api/posts/${postId}`, {
         withCredentials: true   // Ensures cookies are sent with the request
       });
-      navigate("/home");
+      navigate("/");
     } catch (err) {
       console.log(err);
     }
   };
 
-  const getText = (html) =>{
+  const getText = (html) => {
     const doc = new DOMParser().parseFromString(html, "text/html")
     return doc.body.textContent
   }
@@ -52,18 +52,24 @@ const Single = () => {
             <span>{post.username}</span>
             <p>Posted {moment(post.date).fromNow()}</p>
           </div>
-          {currentUser.username === post.username && <div className="edit">
-            <Link to={`/write?edit=2`} state={post}>
-              <button>Edit</button>
-            </Link>
-            <button onClick={handleDelete}>Delete</button>
-          </div>}
+
+          {/* Only show "Edit" and "Delete" if the current user is logged in and is the author of the post */}
+          {currentUser && currentUser.username === post.username && (
+            <div className="edit">
+              <Link to={`/write?edit=2`} state={post}>
+                <button>Edit</button>
+              </Link>
+              <button onClick={handleDelete}>Delete</button>
+            </div>
+          )}
         </div>
-        <h1>{post.title}</h1>
+
+        <h1>{getText(post.title)}</h1>
         {getText(post.description)}
       </div>
       <Menu cat={post.cat} />
     </div>
+
   )
 }
 

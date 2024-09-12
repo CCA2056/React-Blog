@@ -1,5 +1,10 @@
 $lightGreen : #b9e7e7;
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
+body {
+    margin: 0;
+}
 
 .app {
     display: flex;
@@ -43,7 +48,6 @@ $lightGreen : #b9e7e7;
                 width: 80%; // Make form take full width
                 max-width: 300px; // Restrict max width for larger screens
                 gap: 15px;
-                width: 80%;
 
                 input {
                     padding: 12px;
@@ -141,32 +145,80 @@ $lightGreen : #b9e7e7;
 
 
 
-        // Navigation Bar
+        /* Navigation Bar */
         .navbar {
+            font-family: 'Poppins', sans-serif;
+            /* Applying the Poppins font */
+            background-color: #f0f8ff;
+            /* Light background color for clean appearance */
+            padding: 1.5vw 0;
+            border-bottom: 2px solid teal;
+            margin-bottom: 5vw;
+
             .container {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                margin-top: -1.5vw;
+                margin-top: 0;
+                /* Adjusted to remove margin-top */
+
+                .logo {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    color: teal;
+                    letter-spacing: 0.05rem;
+                    /* Added spacing for better readability */
+                }
 
                 .links {
                     display: flex;
-                    gap: 20px; // Increased gap for desktop view
+                    gap: 25px;
+                    /* Adjusted for spacing between links */
                     align-items: center;
 
+                    .link {
+                        text-decoration: none;
+                        color: #333;
+                        transition: color 0.3s ease;
+                        font-weight: 500;
+                        /* Slightly bolder for better visibility */
+
+                        &:hover {
+                            color: teal;
+                        }
+                    }
+
                     h6 {
-                        font-size: 16px;
-                        font-weight: 300;
+                        font-size: 1rem;
+                        font-weight: 500;
+                        margin: 0;
+                        text-transform: uppercase;
+                        /* Uppercase for a modern look */
+                        letter-spacing: 0.05rem;
+                        /* Added spacing for style */
                     }
                 }
 
                 .right {
                     display: flex;
-                    gap: 10px;
+                    gap: 15px;
+                    /* Increased spacing between right-side elements */
                     align-items: center;
 
                     span {
                         cursor: pointer;
+                        font-size: 1rem;
+                        font-weight: 400;
+                        color: #333;
+                        transition: color 0.3s ease;
+
+                        &:hover {
+                            color: teal;
+                        }
+                    }
+
+                    .logout {
+                        font-weight: 600;
                     }
 
                     .write {
@@ -177,58 +229,89 @@ $lightGreen : #b9e7e7;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        font-weight: 300;
+                        font-weight: 500;
+                        /* Updated for consistent font weight */
                         border: 1px solid teal;
+                        transition: background-color 0.3s ease, color 0.3s ease;
 
                         &:hover {
                             color: teal;
                             background-color: white;
-                            border: 1px solid teal;
                         }
                     }
                 }
-            }
 
-            // Hide the links by default on smaller screens
-            .menu-icon {
-                display: none; // Hide the hamburger icon on larger screens
-                font-size: 30px;
-                cursor: pointer;
-            }
+                .menu-icon {
+                    display: none;
+                    /* Hidden on desktop */
+                    font-size: 30px;
+                    cursor: pointer;
+                    color: teal;
+                }
 
-            .menu-links {
-                display: none; // Hide the menu initially on mobile
-                flex-direction: column;
-                gap: 15px;
-                align-items: flex-start;
+                .menu-links {
+                    display: none;
+                    flex-direction: column;
+                    gap: 15px;
+                    align-items: center;
+                    background-color: #f0f8ff;
+                    padding: 20px;
+                    position: absolute;
+                    top: 70px;
+                    right: 0;
+                    width: 100%;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-                h6 {
-                    font-size: 16px;
-                    font-weight: 300;
+                    .link {
+                        text-decoration: none;
+                        color: #333;
+                        width: 100%;
+                        text-align: center; /* Ensure text is centered within each link */
+                        font-weight: 500;
+                        /* Increased weight for mobile readability */
+
+                        &:hover {
+                            color: teal;
+                        }
+                    }
+
+                    h6 {
+                        font-size: 1rem;
+                        font-weight: 500;
+                    }
+                }
+
+                /* Ensure when the 'menu-active' class is applied, the mobile menu is displayed */
+                .menu-active {
+                    display: flex;
                 }
             }
 
-            // Media Queries for Responsiveness
+            /* Media Queries for Responsiveness */
             @media only screen and (max-width: 768px) {
                 .container {
-                    justify-content: space-between;
-
-                    // Hide the normal links and show the hamburger icon
                     .links {
                         display: none;
+                        /* Hidden on mobile */
                     }
 
                     .menu-icon {
-                        display: block; // Show the hamburger icon on smaller screens
+                        display: block;
+                        /* Display hamburger icon on mobile */
                     }
+
+                    .logo {
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                        color: teal;
+                        letter-spacing: 0.05rem;
+                        /* Added spacing for better readability */
+                    }
+
                 }
             }
-
-            // When the menu is active (after clicking the hamburger icon)
-            .menu-active {
-                display: flex; // Show the links when active
-            }
         }
+
 
 
 
@@ -237,21 +320,20 @@ $lightGreen : #b9e7e7;
             margin-top: 8vw;
             padding: 1vw;
             background-color: #b9e7e7;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            position: relative;
+            bottom: 0px;
+
         }
 
         // Home Page
-
         .home {
             .posts {
                 margin-top: 8vw;
                 display: flex;
                 flex-direction: column;
                 gap: 10vw;
-                margin-left: 5vw;
-                margin-right: 5vw;
+                margin-left: 10vw;
+                margin-right: 10vw;
 
                 .post {
                     display: flex;
@@ -307,6 +389,8 @@ $lightGreen : #b9e7e7;
         .single {
             display: flex;
             gap: 3vw;
+            margin-left: 10vw;
+            margin-right: 10vw;
 
             .content {
                 flex: 5;
@@ -381,6 +465,7 @@ $lightGreen : #b9e7e7;
                 h1 {
                     font-style: 2vw;
                     color: #555;
+                    margin-top: -1vw;
                 }
 
                 .post {
@@ -425,6 +510,9 @@ $lightGreen : #b9e7e7;
             margin-top: 20px;
             display: flex;
             gap: 10vw;
+            margin-left: 10vw;
+            margin-right: 10vw;
+            min-height: 70vh;
 
             .content {
                 flex: 5;
